@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Nanum_Myeongjo } from "next/font/google";
+import { Noto_Sans_KR, Nanum_Myeongjo, Gowun_Batang } from "next/font/google";
 import "./globals.css";
 
 const notoSans = Noto_Sans_KR({
@@ -10,6 +10,12 @@ const notoSans = Noto_Sans_KR({
 const nanumMyeongjo = Nanum_Myeongjo({
   variable: "--font-nanum-myeongjo",
   weight: ["400", "700", "800"],
+  subsets: ["latin"],
+});
+
+const gowunBatang = Gowun_Batang({
+  variable: "--font-gowun-batang",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -26,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${notoSans.variable} ${nanumMyeongjo.variable} h-full antialiased`}
+      className={`${notoSans.variable} ${nanumMyeongjo.variable} ${gowunBatang.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>

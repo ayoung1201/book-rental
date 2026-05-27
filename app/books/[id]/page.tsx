@@ -123,7 +123,7 @@ export default function BookDetailPage() {
               <h1 className="text-4xl font-extrabold text-amber-950 mb-4 leading-tight tracking-tight">
                 {book.title}
               </h1>
-              <p className="text-lg text-amber-800/60 mb-10 font-semibold italic">By {book.author}</p>
+              <p className="text-lg text-amber-800/60 mb-8 font-semibold italic">By {book.author}</p>
               
               <div className="space-y-6 border-t border-amber-50 pt-10">
                 <div className="flex justify-between items-center">

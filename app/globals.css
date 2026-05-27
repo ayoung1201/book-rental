@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-noto-sans);
   --font-serif: var(--font-nanum-myeongjo);
+  --font-gowun: var(--font-gowun-batang);
 }
 
 body {

@@ -37,23 +37,25 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] font-sans text-amber-950 flex flex-col items-center pb-20">
-      {/* 🍂 헤더: 감성적인 다이어리 느낌 */}
-      <header className="w-full max-w-5xl px-8 py-16 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8">
-        <div>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-amber-900 tracking-tight mb-4 flex items-center justify-center md:justify-start gap-3">
-            📚 <span className="drop-shadow-sm">SSU 북패스</span> 📖
-          </h1>
-          <p className="text-amber-700/80 font-medium text-lg italic md:pl-2">
-            "당신의 전공책, 누군가에겐 따뜻한 지혜가 됩니다 🍂"
-          </p>
-        </div>
-        <Link 
-          href="/books/new" 
-          className="bg-[#8B5E3C] text-white px-8 py-4 rounded-[2rem] font-bold text-lg shadow-[0_10px_30px_rgba(139,94,60,0.2)] hover:bg-[#724D31] hover:-translate-y-1 transition-all duration-300 active:scale-95 flex items-center gap-2"
-        >
-          ✨ 나의 책 등록하기
-        </Link>
-      </header>
+      {/* 🍂 헤더: 전체 너비 배경으로 층 분리 */}
+      <div className="w-full bg-white shadow-[0_4px_20px_rgba(180,130,80,0.05)] border-b border-amber-100/50 flex justify-center mb-10">
+        <header className="w-full max-w-5xl px-8 py-14 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8">
+          <div>
+            <h1 className="font-gowun text-5xl md:text-6xl font-extrabold text-amber-900 tracking-tight mb-4 flex items-center justify-center md:justify-start gap-3">
+              📚 <span className="drop-shadow-sm">SSU 북패스</span> 📖
+            </h1>
+            <p className="text-amber-700/80 font-medium text-lg italic md:pl-2">
+              &quot;당신의 전공책, 누군가에겐 따뜻한 지혜가 됩니다 🍂&quot;
+            </p>
+          </div>
+          <Link 
+            href="/books/new" 
+            className="bg-[#8B5E3C] text-white px-8 py-4 rounded-[2rem] font-bold text-lg shadow-[0_10px_30px_rgba(139,94,60,0.2)] hover:bg-[#724D31] hover:-translate-y-1 transition-all duration-300 active:scale-95 flex items-center gap-2"
+          >
+            ✨ 나의 책 등록하기
+          </Link>
+        </header>
+      </div>
 
       {/* 🏡 메인 콘텐츠: 아늑한 배치 */}
       <main className="w-full max-w-5xl px-8">
@@ -100,12 +102,15 @@ export default function Home() {
                   <h3 className="text-xl font-extrabold text-amber-950 mb-3 leading-tight group-hover:text-[#8B5E3C] transition-colors">
                     {book.title}
                   </h3>
-                  <p className="text-amber-700/60 text-sm mb-8 font-semibold flex items-center gap-1.5">
+                  <p className="text-amber-700/60 text-sm mb-4 font-semibold flex items-center gap-1.5">
                     <span className="w-4 h-0.5 bg-amber-200"></span>
                     {book.author}
                   </p>
                   
-                  <div className="flex justify-between items-end border-t border-amber-50 pt-6">
+                  {/* 대여 정보 박스 */}
+                  <div className={`p-5 rounded-[1.5rem] border border-amber-100/50 shadow-sm flex justify-between items-end transition-colors ${
+                    isRented ? 'bg-amber-50/50' : 'bg-[#FDFBF7] group-hover:bg-amber-50/80'
+                  }`}>
                     <div className="flex flex-col">
                       <span className="text-[10px] text-amber-500 font-bold mb-1 uppercase tracking-widest">Rental Fee ✨</span>
                       <span className={`text-2xl font-bold ${isRented ? 'text-gray-400' : 'text-amber-900'}`}>
@@ -113,7 +118,7 @@ export default function Home() {
                       </span>
                     </div>
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      isRented ? 'bg-gray-100 text-gray-300' : 'bg-amber-50 group-hover:bg-[#8B5E3C] group-hover:text-white'
+                      isRented ? 'bg-gray-100 text-gray-300' : 'bg-white shadow-sm group-hover:bg-[#8B5E3C] group-hover:text-white'
                     }`}>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -129,7 +134,7 @@ export default function Home() {
 
       <footer className="max-w-5xl mx-auto mt-20 pt-10 border-t border-amber-100/50 text-center w-full px-8">
         <p className="text-amber-800/40 text-sm font-medium italic mb-2">
-          "지식은 나눌수록 포근해집니다 ☕️"
+          &quot;지식은 나눌수록 포근해집니다 ☕️&quot;
         </p>
         <p className="text-amber-700/30 text-[10px] font-bold tracking-[0.2em] uppercase">
           SSU Book Pass · Warmth and Knowledge
